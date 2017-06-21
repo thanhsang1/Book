@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td><label>ページ数</label></td>
-                        <td><input type="text" name="page"/></td>
+                        <td><input type="number" name="page" maxlength="1 "/></td>
                     </tr>
                     <tr><td></td>
                         <td><input type="submit" value="送信" /></td>

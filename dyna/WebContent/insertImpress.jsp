@@ -16,6 +16,10 @@
 			</thead>
 			<tbody>
 				<tr>
+				<tr>
+					<td><input type="hidden" value="${param.bookId}" name="bookId" />
+				</tr>
+				<tr>
 					<td><label> コメント</label></td>
 					<td><input type="text" name="pname" /></td>
 				</tr>
@@ -36,7 +40,7 @@
 	<font color="green"><c:if test="${not empty param.susMsg}">
 			<c:out value="${param.susMsg}" />
 			<button>
-				<a href="impression.jsp">戻る</a>
+				<a href="impression.jsp?id=<c:out value="${param.bookId}"/>">
 			</button>
 		</c:if></font>
 

@@ -20,10 +20,11 @@
 		url="jdbc:mysql://localhost/tbbook" user="root" password="" />
 
 	<sql:query dataSource="${dbsource}" var="result">
-            SELECT * from impressions;
+            SELECT impressions.id,impressions.comment,impressions.book_id FROM book,impressions WHERE book.id=? AND book.id=impressions.book_id
+              <sql:param value="${param.id}" />
         </sql:query>
         <button>
-					<a href="insertImpress.jsp">追加</a>
+					<a href="insertImpress.jsp?bookId=<c:out value="${param.id}"/>">追加</a>
 				</button>
 	<center>
 		<form>
@@ -42,7 +43,7 @@
 						<td><c:out value="${row.comment}" /></td>
 
 						<td><button>
-								<a href="updateImpress.jsp?id=<c:out value="${row.id}"/>">修正</a>
+								<a href="updateImpress.jsp?impressId=<c:out value="${row.id}"/>&bookId=<c:out value="${param.id}"/>">修正</a>
 							</button></td>
 						<td><button><a
 							href="javascript:confirmGo('書籍を削除してよろしでしょうか？','deleteImpress.jsp?id=<c:out value="${row.id}"/>')">削除</a></button></td>

@@ -23,45 +23,52 @@
             SELECT * from book;
         </sql:query>
 
-	<button>
-		<a href="insert.jsp">追加</a>
-	</button>
 
 	<center>
+<div id=content style="margin-right:auto;margin-left:auto">
 
-		<form>
+		<div  style="margin-right:30%">
+			<button>
+				<a href="insert.jsp">追加</a>
+			</button>
+		</div>
+		<div>
+			<form>
+				<table border="1" width="40%">
+					<caption>書籍一覧</caption>
 
-			<table border="1" width="40%">
-				<caption>書籍一覧</caption>
-
-				<tr>
-					<th>ID</th>
-
-					<th>書籍名</th>
-					<th>出版社</th>
-					<th>ページ数</th>
-					<th colspan="3">操作</th>
-				</tr>
-				<c:forEach var="row" items="${result.rows}">
 					<tr>
-						<td><c:out value="${row.id}" /></td>
-						<td><c:out value="${row.name}" /></td>
-						<td><c:out value="${row.publisher}" /></td>
-						<td><c:out value="${row.page}" /></td>
-						<td><button>
-								<a href="update.jsp?id=<c:out value="${row.id}"/>">修正</a>
-							</button></td>
-						<td><button>
-								<a
-									href="javascript:confirmGo('書籍を削除してよろしでしょうか？','deletedb.jsp?id=<c:out value="${row.id}"/>')">削除</a>
-							</button></td>
-						<td><button>
-								<a href="impression.jsp?id=<c:out value="${row.id}"/>"> 感想の一覧
-							</button></td>
+						<th>ID</th>
+
+						<th>書籍名</th>
+						<th>出版社</th>
+						<th>ページ数</th>
+						<th colspan="3">操作</th>
 					</tr>
-				</c:forEach>
-			</table>
-		</form>
+					<c:forEach var="row" items="${result.rows}">
+						<tr>
+							<td><c:out value="${row.id}" /></td>
+							<td><c:out value="${row.name}" /></td>
+							<td><c:out value="${row.publisher}" /></td>
+							<td><c:out value="${row.page}" /></td>
+							<td><button>
+									<a href="update.jsp?id=<c:out value="${row.id}"/>">修正</a>
+								</button></td>
+							<td><button>
+									<a
+										href="javascript:confirmGo('書籍を削除してよろしでしょうか？','deletedb.jsp?id=<c:out value="${row.id}"/>')">削除</a>
+								</button></td>
+							<td><button>
+									<a href="impression.jsp?id=<c:out value="${row.id}"/>">
+										感想の一覧 
+								</button></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</form>
+		</div>
+		</div>
+		
 		<button>
 			<a href="index.jsp">戻る</a>
 		</button>

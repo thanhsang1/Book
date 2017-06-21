@@ -12,16 +12,18 @@
 	<sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
 		url="jdbc:mysql://localhost/tbbook" user="root" password="" />
 	<sql:update dataSource="${dbsource}" var="count">
-            UPDATE impressions SET comment = ?, book_id=1
-            WHERE id='${param.id}'
+            UPDATE impressions SET comment = ?, book_id=?
+            WHERE id='${param.impressId}'
             <sql:param value="${param.pname}" />
-	
-		
+		<sql:param value="${param.bookId}" />
+
+
+
 	</sql:update>
 	<c:if test="${count>=1}">
 		<font size="5" color='green'> Congratulations ! Data updated
 			successfully.</font>
-		<a href="impression.jsp">Go Home</a>
+		<a href="impression.jsp?id=<c:out value="${param.bookId}"/>">Go Home</a>
 	</c:if>
 </body>
 </html>

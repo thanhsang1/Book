@@ -15,7 +15,7 @@
 
 	<sql:query dataSource="${dbsource}" var="result">
             SELECT * from impressions where id=?;
-            <sql:param value="${param.id}" />
+            <sql:param value="${param.impressId}" />
 	</sql:query>
 	<form action="updateImpressdb.jsp" method="post">
 		<table border="0" width="40%">
@@ -25,7 +25,8 @@
 			<c:forEach var="row" items="${result.rows}">
 				<tbody>
 					<tr>
-						<td><input type="hidden" value="${param.id}" name="id" />
+						<td><input type="hidden" value="${param.bookId}" name="bookId" />
+						<td><input type="hidden" value="${param.impressId}" name="impressId" />
 					</tr>
 					<tr>
 						<td><label> コメント </label></td>
