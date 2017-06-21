@@ -6,26 +6,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title> 書籍編集</title>
+<title> 書籍の編集</title>
 </head>
 <body>
 
 	<sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost/tbbook" user="root" password="" />
+		url="jdbc:mysql://localhost/bookmanager" user="root" password="" />
 
 	<sql:query dataSource="${dbsource}" var="result">
-            SELECT * from book where id=?;
-            <sql:param value="${param.id}" />
+            SELECT * from books where id=?;
+            <sql:param value="${param.bookId}" />
 	</sql:query>
-	<form action="updatedb.jsp" method="post">
+	<form action="book_edit_db.jsp" method="post">
 		<table border="0" width="40%">
-			<caption>書籍編集</caption>
+			<caption>書籍の編集</caption>
 
 		
 			<c:forEach var="row" items="${result.rows}">
 				<tbody>
 					<tr>
-						<td><input type="hidden" value="${param.id}" name="id" />
+						<td><input type="hidden" value="${param.bookId}" name="bookId" />
 					</tr>
 					<tr>
 						<td><label>書籍名</label></td>
@@ -37,7 +37,7 @@
 					</tr>
 					<tr>
 						<td><label>ページ数</label></td>
-						<td><input type="text" value="${row.page}" name="page" /></td>
+						<td><input type="number" value="${row.page}" name="page" /></td>
 					</tr>
 					<tr>
 					<td></td>
@@ -49,7 +49,9 @@
 
 			</c:forEach>
 		</table>
-		<a href="book.jsp">戻る</a>
+		<button>
+		<a href="book_list.jsp">戻る</a>
+		</button>
 	</form>
 </body>
 </html>

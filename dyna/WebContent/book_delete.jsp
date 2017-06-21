@@ -10,16 +10,16 @@
     </head>
     <body>
         <sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-                           url="jdbc:mysql://localhost/tbbook"
+                           url="jdbc:mysql://localhost/bookmanager"
                            user="root"  password=""/>
         <sql:update dataSource="${dbsource}" var="count">
-            DELETE FROM impressions
-            WHERE id='${param.id}'
+            DELETE FROM books
+            WHERE id='${param.bookId}'
         </sql:update>
         <c:if test="${count>=1}">
             <font size="5" color='green'> Congratulations ! Data deleted
             successfully.</font>
-              <a href="impression.jsp">戻る</a>          
+              <a href="book_list.jsp">戻る</a>          
         </c:if>
     </body>
 </html>

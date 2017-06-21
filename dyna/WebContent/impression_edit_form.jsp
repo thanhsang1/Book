@@ -6,20 +6,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>感想編集</title>
+<title>感想の編集</title>
 </head>
 <body>
 
 	<sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost/tbbook" user="root" password="" />
+		url="jdbc:mysql://localhost/bookmanager" user="root" password="" />
 
 	<sql:query dataSource="${dbsource}" var="result">
-            SELECT * from impressions where id=?;
+            SELECT * from impression where id=?;
             <sql:param value="${param.impressId}" />
 	</sql:query>
-	<form action="updateImpressdb.jsp" method="post">
+	<form action="impression_edit_db.jsp" method="post">
 		<table border="0" width="40%">
-			<caption>感想編集</caption>
+			<caption>感想の編集</caption>
 
 
 			<c:forEach var="row" items="${result.rows}">
@@ -42,8 +42,8 @@
 				</tbody>
 
 			</c:forEach>
-		</table>
-		<a href="impression.jsp">戻る</a>
+		</table><button>
+		<a href="impression_list.jsp">戻る</a></button>
 	</form>
 </body>
 </html>

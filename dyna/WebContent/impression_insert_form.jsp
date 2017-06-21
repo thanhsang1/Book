@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>感想登録</title>
+<title>感想の登録</title>
 </head>
 <body>
-	<form action="insertImpressdb.jsp" method="post">
+	<form action="impression_insert_db.jsp" method="post">
 		<table border="0" cellspacing="2" cellpadding="5">
 			<thead>
 				<tr>
-					<th colspan="2">感想登録</th>
+					<th colspan="2">感想の登録</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -21,7 +21,7 @@
 				</tr>
 				<tr>
 					<td><label> コメント</label></td>
-					<td><input type="text" name="pname" /></td>
+					<td><input type="text" name="bookcomment" /></td>
 				</tr>
 
 				<tr>
@@ -35,12 +35,6 @@
 			<c:out value="${param.errMsg}" />
 			<button>
 				<a href="index.jsp">戻る</a>
-			</button>
-		</c:if></font>
-	<font color="green"><c:if test="${not empty param.susMsg}">
-			<c:out value="${param.susMsg}" />
-			<button>
-				<a href="impression.jsp?id=<c:out value="${param.bookId}"/>">
 			</button>
 		</c:if></font>
 

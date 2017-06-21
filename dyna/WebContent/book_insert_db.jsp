@@ -10,25 +10,25 @@
 <title>書籍登録</title>
 </head>
 <body>
-	<c:if test="${ empty param.pname or empty param.qty}">
-		<c:redirect url="insert.jsp">
-			<c:param name="errMsg" value="データを入力してください" />
+	<c:if test="${ empty param.bookname or empty param.bookqty or empty param.bookpage}">
+		<c:redirect url="book_insert_form.jsp">
+			<c:param name="errMsg" value="please input database" />
 		</c:redirect>
 
 	</c:if>
 	<sql:setDataSource var="dbsource" driver="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost/tbbook" user="root" password="" />
+		url="jdbc:mysql://localhost/bookmanager" user="root" password="" />
 	<sql:update dataSource="${dbsource}" var="result">
-            INSERT INTO book(name,publisher, page) VALUES (?,?,?);
-            <sql:param value="${param.pname}" />
-		<sql:param value="${param.qty}" />
-				<sql:param value="${param.page}" />
-		
+            INSERT INTO books (name,publisher, page) VALUES (?,?,?);
+            <sql:param value="${param.bookname}" />
+		<sql:param value="${param.bookqty}" />
+		<sql:param value="${param.bookpage}" />
+
 	</sql:update>
 	<c:if test="${result>=1}">
 		<font size="5" color='green'>書籍登録が完了しました.</font>
 
-		<c:redirect url="book.jsp">
+		<c:redirect url="book_list.jsp">
 			<c:param name="susMsg"
 				value="Congratulations ! Data inserted
             successfully." />
