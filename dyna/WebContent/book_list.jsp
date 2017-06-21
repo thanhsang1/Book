@@ -54,7 +54,7 @@
 									</button></td>
 								<td><button>
 										<a
-											href="javascript:confirmGo('書籍を削除してよろしでしょうか？','book_delete.jsp?bookId=<c:out value="${row.id}"/>')">削除</a>
+											href="javascript:confirmGo('書籍や感想を削除してよろしでしょうか？','book_delete.jsp?bookId=<c:out value="${row.id}"/>')">削除</a>
 									</button></td>
 								<td><button>
 										<a href="impression_list.jsp?bookId=<c:out value="${row.id}"/>">

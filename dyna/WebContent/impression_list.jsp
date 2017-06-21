@@ -40,14 +40,14 @@
 							<th>書籍名</th>
 							<th>コメント</th>
 							<th colspan="2">操作</th>
+							<th></th>
+
 						</tr>
 						<c:forEach var="row" items="${result.rows}">
 							<tr>
 								<td><c:out value="${row.id}" /></td>
 								<td><c:out value="${row.name}" /></td>
 								<td><c:out value="${row.comment}" /></td>
-								<td><input type="hidden" value="${param.bookId}"
-									name="bookId" />
 								<td><button>
 										<a
 											href="impression_edit_form.jsp?impressId=<c:out value="${row.id}"/>&bookId=<c:out value="${param.bookId}"/>">修正</a>
@@ -56,6 +56,8 @@
 										<a
 											href="javascript:confirmGo('書籍を削除してよろしでしょうか？','impression_delete.jsp?id=<c:out value="${row.id}"/>')">削除</a>
 									</button></td>
+								<td><input type="hidden" value="${param.bookId}"
+									name="bookId" />
 							</tr>
 						</c:forEach>
 					</table>

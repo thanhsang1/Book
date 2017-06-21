@@ -13,6 +13,10 @@
                            url="jdbc:mysql://localhost/bookmanager"
                            user="root"  password=""/>
         <sql:update dataSource="${dbsource}" var="count">
+            DELETE FROM impression
+            WHERE book_id='${param.bookId}'
+        </sql:update>
+        <sql:update dataSource="${dbsource}" var="count">
             DELETE FROM books
             WHERE id='${param.bookId}'
         </sql:update>
